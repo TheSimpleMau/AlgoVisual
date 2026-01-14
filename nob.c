@@ -14,9 +14,10 @@ int main(int argc, char **argv)
     Nob_Cmd cmd = {0};
 
     nob_cmd_append(&cmd, "clang++", "-Wall", "-Wextra", "-o", BUILD_FOLDER"main", SRC_FOLDER"main.cpp");
-    nob_cmd_append(&cmd, "-I/opt/homebrew/include");
-    nob_cmd_append(&cmd, "-L/opt/homebrew/lib");
-    nob_cmd_append(&cmd, "-lraylib");
+    nob_cmd_append(&cmd, "-I./raylib/include");
+    nob_cmd_append(&cmd, "./raylib/lib/libraylib.a");
+    // nob_cmd_append(&cmd, "-L./raylib/lib");
+    // nob_cmd_append(&cmd, "-lraylib");
     nob_cmd_append(&cmd, "-framework", "OpenGL");
     nob_cmd_append(&cmd, "-framework", "Cocoa");
     nob_cmd_append(&cmd, "-framework", "IOKit");

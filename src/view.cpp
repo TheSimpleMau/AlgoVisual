@@ -1,10 +1,9 @@
 #include "raylib.h"
-#include "math.h"
 
 int main(){
+
   InitWindow(800, 400, "Mi primera ventana con Raylib");
   SetTargetFPS(60);
-
 
   while (!WindowShouldClose()){
     BeginDrawing();
@@ -12,6 +11,7 @@ int main(){
     DrawText("Mi primera ventana!", 190, 200, 20, DARKGRAY);
     EndDrawing();
   }
+
   CloseWindow();
   return 0;
 }
