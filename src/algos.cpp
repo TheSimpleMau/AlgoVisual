@@ -5,18 +5,17 @@ int main() {
 
   vector<int> array;
   vector<vector<int>> steps;
+  
+  randomArray(array);
 
-  for (int i=0; i<ARRAY_SIZE; i++){
-    array.push_back(1 + (rand()%ARRAY_SIZE));
-  }
   // printArray("unsorted", array);
   //
-  vector<int> sorted_bubble = bubbleSort(array, steps);
+  // vector<int> sorted_bubble = bubbleSort(array, steps);
   // vector<int> sorted_insertion = insertionSort(array);
   // vector<int> sorted_selection = selectionSort(array);
-  // vector<int> sorted_merge = mergeSort(array);
+  vector<int> sorted_merge = mergeSort(array, steps);
   //
-  printArray("sorted_bubble", sorted_bubble);
+  // printArray("sorted_bubble", sorted_bubble);
   // printArray("sorted_insertion", sorted_insertion);
   // printArray("sorted_selection", sorted_selection);
   // printArray("sorted_merge", sorted_merge);
@@ -27,6 +26,7 @@ int main() {
   // printf("Sorting whit: mergeSort...\n");
   // timeToSort(mergeSort, array, "mergeSort");
   
+  //
   printSteps(steps);
   
 

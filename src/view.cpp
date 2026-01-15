@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "algos.h"
 #include <vector>
 #include <algorithm>
 
@@ -25,27 +26,37 @@ void drawRectangles(vector<int> arrary){
 
 }
 
+void drawSteps(vector<vector<int>> steps, int &currentIndex){
+  drawRectangles(steps[currentIndex]);
+  if (currentIndex < steps.size()-1){
+    currentIndex += 1;
+  } else {
+    currentIndex = 0;
+  }
+  WaitTime(0.25);
+}
 
 int main(){
 
-  InitWindow(WIDTH, HEIGHT, "Mi primera ventana con Raylib");
+  InitWindow(WIDTH, HEIGHT, "Algorithms visualizer");
   SetTargetFPS(60);
 
-  vector<int> arrary;
+  vector<int> array;
+  vector<vector<int>> steps;
+  int currentIndex = 0;
 
-  for (int i=1; i<11; i++){
-    arrary.push_back(i);
-  }
-
-  // for (int i = 0; i < arrary.size(); i++) {
-  //   printf("%d\n", arrary[i]);
-  // }
+  randomArray(array);
+ 
+  // bubbleSort(array, steps);
+  // insertionSort(array, steps);
+  // selectionSort(array, steps);
+  mergeSort(array, steps);
 
   while (!WindowShouldClose()){
     BeginDrawing();
-    DrawFPS(WIDTH/15, HEIGHT/15);
-    drawRectangles(arrary);
     ClearBackground(RAYWHITE);
+    drawSteps(steps, currentIndex);
+    DrawFPS(WIDTH/15, HEIGHT/15);
     EndDrawing();
   }
 
